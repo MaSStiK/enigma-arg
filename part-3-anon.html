@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Загадка Энигмы | Этап 2</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="console">
+      <div class="console-title">
+        <img src="./assets/cmd-icon.svg " alt="cmd-icon" />
+        <p class="title-pc">C:\Windows\system32\cmd.exe</p>
+        <p class="title-mobile">cmd.exe</p>
+        <div class="console-title__controls">
+          <button>
+            <img src="./assets/Minimize.svg" alt="Minimize" />
+          </button>
+          <button>
+            <img src="./assets/Maximize.svg" alt="Maximize" />
+          </button>
+          <button>
+            <img src="./assets/Close.svg" alt="Close" />
+          </button>
+        </div>
+      </div>
+      <div class="console-text">
+        <p>Microsoft Windows [Version 10.0.22631.4890]</p>
+        <p>
+          (с) Корпорация Майкрософт (Microsoft Corporation), 2025. Все права
+          защищены.
+        </p>
+      </div>
+      <div class="console-text" id="console-container"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./scipts/typeMessage.js"></script>
+    <script src="./scipts/setBlinkInput.js"></script>
+    <script src="./scipts/part-3.bat.js"></script>
+  </body>
+</html>
