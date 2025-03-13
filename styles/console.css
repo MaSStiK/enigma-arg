@@ -45,10 +45,12 @@ mark,
 /* Обвертка строки с полем ввода команд */
 #command-input-wrapper {
     display: flex;
+    align-items: center;
 }
 
 /* Растягиваем поле ввода команд */
 #command-input {
+    min-width: 1px;
     flex: 1;
 }
 

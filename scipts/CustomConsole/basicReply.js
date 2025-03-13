@@ -37,7 +37,7 @@ export function replyCommandHelp(command) {
     CustomConsole.replyCommand(reply)
 }
 
-export function replyCommandColor(command) {
+export function replyCommandColor() {
     let reply = [
         {text: "COLOR [attr]", speed: "instant", pause: 0},
         {text: "attr Установка атрибута цветов текста для вывода в консоли.", speed: "instant", pause: 0},
@@ -56,4 +56,42 @@ export function replyCommandColorChanged(color) {
         {text: `Установлен цвет текста: ${color}`, speed: "instant", pause: 0},
         {text: "&nbsp;"}
     ])
+}
+
+export function replyCommandStartBat() {
+    CustomConsole.replyCommand([
+        {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
+    ], false)
+
+    fetch("http://localhost:3000/api/start.bat")
+    .then(res => res.json())
+    .then(reply => {
+        CustomConsole.replyCommand(reply)
+    })
+}
+
+export function replyCommandKey(key) {
+    CustomConsole.replyCommand([
+        {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
+    ], false)
+
+    fetch(`http://localhost:3000/api/${key}`)
+    .then(res => res.json())
+    .then(reply => {
+        CustomConsole.replyCommand(reply)
+    })
+}
+
+export function replyCommandKeyAnswer(key, arg) {
+    CustomConsole.replyCommand([
+        {text: `curl -X POST 77.85.11.60 -d "file=${key}, answer=${arg}"`, speed: "instant"},
+    ], false)
+
+    let url = `http://localhost:3000/api/${key}?answer=${encodeURIComponent(arg)}`
+
+    fetch(url)
+    .then(res => res.json())
+    .then(reply => {
+        CustomConsole.replyCommand(reply)
+    })
 }

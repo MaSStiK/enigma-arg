@@ -64,5 +64,5 @@ $(".skip-animation").on("click tap", () => {
     DO_INSTANT = true
     setTimeout(() => {
         DO_INSTANT = false
-    }, 50)
+    }, 500)
 })

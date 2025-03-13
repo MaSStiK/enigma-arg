@@ -4,7 +4,10 @@ import {
     replyCommandNotFound,
     replyCommandHelp,
     replyCommandColor,
-    replyCommandColorChanged
+    replyCommandColorChanged,
+    replyCommandStartBat,
+    replyCommandKey,
+    replyCommandKeyAnswer
 } from './basicReply.js'
 
 export class CustomConsole {
@@ -12,7 +15,16 @@ export class CustomConsole {
     static COMMANDS = COMMANDS;
     static COLORS = COLORS;
 
-    static initInput() { // Инициализация инпута для ввода команд
+    
+
+    // Отображение/скрытие поля ввода
+    static showInput(state=true) {
+        if (state) $("#command-input-wrapper").show()
+        else $("#command-input-wrapper").hide()
+    }
+
+    // Инициализация инпута для ввода команд
+    static initInput() { 
         const $input = $("#command-input");
         const $blink = $("#blink");
     
@@ -27,34 +39,42 @@ export class CustomConsole {
         });
     
         $input.on("change", function() {
+            CustomConsole.showInput(false)
             CustomConsole.executeCommand($(this).val())
             $(this).val("") // Очищаем поле ввода после выполнения команды
         })
+
+        // Активируем инпут при клике на консоль
+        $(".console-inner").on("click tap", function() {
+            if (window.getSelection().toString().length === 0) {
+                $input.focus();
+            }
+        })
     }
 
-    static showInput(state=true) { // Отображение/скрытие поля ввода
-        if (state) $("#command-input-wrapper").show()
-        else $("#command-input-wrapper").hide()
-    }
-
-    static replyCommand(messages) { // Отображение сообщений в консоли
-        this.showInput(false)
-        displayMessages(messages, $("#console-container")).then(() => {
-            this.showInput(true)
+    // Отображение сообщений в консоли
+    static replyCommand(messages, afterShowInput = true) { 
+        return new Promise((resolve) => {
+            this.showInput(false)
+            displayMessages(messages, $("#console-container")).then(() => {
+                if (afterShowInput) this.showInput(true)
+                resolve()
+            })
         })
     }
 
 
-    static executeCommand(_command, typeCommandLine=true) {
+    // Выполнение команды из консоли
+    static executeCommand(_command, typeCommandLine = true) {
         const originalCommand = _command.replace(/\s+/g, " ").trim()
-        const splittedCommand = originalCommand.toLowerCase().split(" ")
-        const command = splittedCommand[0]
+        const splittedCommand = originalCommand.split(" ")
+        const command = splittedCommand[0].toLowerCase()
+        const arg = splittedCommand.slice(1).join(' ')
+        console.log(arg);
+        
 
+        // Вставляем текущую команду в консоль
         if (typeCommandLine) $("#console-container").append(`<p>C:\\Users\\Enigma\\arg>${originalCommand}</p>`)
-
-        if (command.startsWith("key")) {
-            // this.executeKeyCommand()
-        }
 
         // Если команда отключена
         let isCommandDisabled = this.DISABLED_COMMANDS.find(c => command === c.toLowerCase())
@@ -63,36 +83,48 @@ export class CustomConsole {
             return
         }
 
-        // Если команда не найдена
-        let isCommandFounded = this.COMMANDS.find(c => command === c.name.toLowerCase())
-        if (!isCommandFounded) {
-            replyCommandNotFound(originalCommand)
+        if (command.startsWith("key")) {
+            if (!arg) {
+                replyCommandKey(command)
+            } else {
+                replyCommandKeyAnswer(command, arg)
+            }
             return
         }
 
+        // Выполняем команду
         switch (command) {
             case "help":
                 replyCommandHelp(originalCommand)
                 break;
+
             case "cls":
                 $("#console-container").empty()
+                this.showInput(true)
                 break;
+
             case "color":
-                const arg = parseInt(splittedCommand[1])
+                const argInt = parseInt(arg)
 
                 // Если цвет не указан или недопустим
-                if (isNaN(arg) || arg > COLORS.length - 1 || arg < 0) { 
+                if (isNaN(argInt) || argInt > COLORS.length - 1 || argInt < 0) { 
                     replyCommandColor()
                 } else {
                     // Если цвет указан и допустим
-                    const color = COLORS[parseInt(arg)]
+                    const color = COLORS[parseInt(argInt)]
                     document.documentElement.style.setProperty("--console-text-color", color.color);
                     localStorage.setItem("consoleTextColor", color.name);
                     replyCommandColorChanged(color.name)
                 }
                 break;
-        
+
+            case "start.bat":
+                replyCommandStartBat()
+                break;
+                
             default:
+                // Если команда не найдена
+                replyCommandNotFound(originalCommand)
                 break;
         }
     }
