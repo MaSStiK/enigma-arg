@@ -1,4 +1,6 @@
 import { CustomConsole } from "./CustomConsole.js"
+// const API_URL = "http://localhost:3000/api"
+const API_URL = "https://enigma-arg-api.vercel.app/api"
 
 export function replyCommandNotAllowed(command) {
     CustomConsole.replyCommand([
@@ -63,7 +65,7 @@ export function replyCommandStartBat() {
         {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
     ], false)
 
-    fetch("http://localhost:3000/api/start.bat")
+    fetch(`${API_URL}/start.bat`)
     .then(res => res.json())
     .then(reply => {
         CustomConsole.replyCommand(reply)
@@ -75,7 +77,7 @@ export function replyCommandKey(key) {
         {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
     ], false)
 
-    fetch(`http://localhost:3000/api/${key}`)
+    fetch(`${API_URL}/${key}`)
     .then(res => res.json())
     .then(reply => {
         CustomConsole.replyCommand(reply)
@@ -87,7 +89,7 @@ export function replyCommandKeyAnswer(key, arg) {
         {text: `curl -X POST 77.85.11.60 -d "file=${key}, answer=${arg}"`, speed: "instant"},
     ], false)
 
-    let url = `http://localhost:3000/api/${key}?answer=${encodeURIComponent(arg)}`
+    let url = `${API_URL}/${key}?answer=${encodeURIComponent(arg)}`
 
     fetch(url)
     .then(res => res.json())
