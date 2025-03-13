@@ -1,4 +1,4 @@
-const DISABLED_COMMANDS = [
+export const DISABLED_COMMANDS = [
     "ASSOC",
     "ATTRIB",
     "BREAK",
@@ -85,13 +85,13 @@ const DISABLED_COMMANDS = [
     "WMIC"
 ]
 
-const COMMANDS = [
-    {name: "CLS", desc: "&nbsp; &nbsp; - Очистка экрана."},
-    {name: "COLOR", desc: "&nbsp; - Установка цвета текста в консоли."},
-    {name: "HELP", desc: "&nbsp;&nbsp; - Выводит справочную информацию о доступных командах."},
+export const COMMANDS = [
+    {name: "CLS", desc: "Очистка экрана."},
+    {name: "COLOR", desc: "Установка цвета текста в консоли."},
+    {name: "HELP", desc: "Выводит справочную информацию о доступных командах."},
 ]
 
-const COLORS = [
+export const COLORS = [
     {name: "Белый", color: "#FFFFFF"},
     {name: "Зеленый", color: "#00FF00"},
     {name: "Желтый", color: "#FFFF00"},

@@ -6,7 +6,7 @@ input[type=text] {
     color: var(--console-text-color);
     text-decoration: none;
     font-weight: 500;
-    font-size: 16px;
+    font-size: var(--console-text-size);
 
     outline: none;
     background-color: var(--console-bg);

@@ -9,35 +9,43 @@
 </head>
 <body>
     <div class="console">
-        <div class="console-title">
+        <div class="console-top">
             <img src="./assets/cmd-icon.svg " alt="cmd-icon" />
-            <p class="title-pc">C:\Windows\system32\cmd.exe</p>
-            <p class="title-mobile">cmd.exe</p>
-            <div class="console-title__controls">
-            <button>
+            <p class="console-top__path-pc">C:\Windows\system32\cmd.exe</p>
+            <p class="console-top__path-mobile">cmd.exe</p>
+            <div class="console-top__controls">
+            <button class="skip-animation">
                 <img src="./assets/Minimize.svg" alt="Minimize" />
             </button>
-            <button>
+            <button class="skip-animation">
                 <img src="./assets/Maximize.svg" alt="Maximize" />
             </button>
-            <button id="skip-animation">
+            <button class="skip-animation">
                 <img src="./assets/Close.svg" alt="Close" />
             </button>
             </div>
         </div>
-        <div class="console-text">
-            <p>Microsoft Windows [Version 10.0.22631.4890]</p>
-            <p>(с) Корпорация Майкрософт (Microsoft Corporation), 2025. Все права защищены.</p>
+        <div class="console-inner">
+            <div class="console-text">
+                <p>Microsoft Windows [Version 10.0.22631.4890]</p>
+                <p>(с) Корпорация Майкрософт (Microsoft Corporation), 2025. Все права защищены.</p>
+                <p>&nbsp;</p>
+            </div>
+            
+            <div id="console-container" class="console-text"></div>
+
+            <div id="command-input-wrapper" class="console-text">
+                <p>C:\Users\Enigma\arg></p>
+                <span id="blink">│</span>
+                <input id="command-input" type="text">
+            </div>
         </div>
-        <div class="console-text" id="console-container"></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./scipts/typeMessage.js"></script>
-    <script src="./scipts/setBlinkInput.js"></script>
-    <script src="./scipts/basicCommands.js"></script>
-    <script src="./scipts/basicReply.js"></script>
-    <script src="./scipts/main.js"></script>
     <script src="./scipts/start.bat.js"></script>
+    <script type="module" src="./scipts/CustomConsole/CustomConsole.js"></script>
+    <script type="module" src="./scipts/main.js"></script>
 </body>
 </html>

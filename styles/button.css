@@ -13,6 +13,8 @@ button {
     outline: none;
     border: none;
     border-radius: 0;
+
+    cursor: pointer;
 }
 
 /* Наведение на пк */

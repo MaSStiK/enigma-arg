@@ -54,13 +54,13 @@ async function wait(ms) {
 async function displayMessages(messages, container) {
     for (const message of messages) {
         await typeMessage(message, container);  
-        if (message.text !== "&nbsp;" && !DO_INSTANT) {
+        if (message.text !== "&nbsp;" && !DO_INSTANT && message.pause !== 0) {
             await wait(message.pause !== undefined ? message.pause : DEFAULT_PAUSE); // Пауза между сообщениями
         }
     }
 }
 
-$("#skip-animation").on("click tap", () => {
+$(".skip-animation").on("click tap", () => {
     DO_INSTANT = true
     setTimeout(() => {
         DO_INSTANT = false
