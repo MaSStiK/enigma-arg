@@ -52,6 +52,10 @@ export class CustomConsole {
 
         if (typeCommandLine) $("#console-container").append(`<p>C:\\Users\\Enigma\\arg>${originalCommand}</p>`)
 
+        if (command.startsWith("key")) {
+            // this.executeKeyCommand()
+        }
+
         // Если команда отключена
         let isCommandDisabled = this.DISABLED_COMMANDS.find(c => command === c.toLowerCase())
         if (isCommandDisabled) {
@@ -75,9 +79,12 @@ export class CustomConsole {
                 break;
             case "color":
                 const arg = parseInt(splittedCommand[1])
-                if (arg === NaN || arg > COLORS.length - 1 || arg < 0) { // Если цвет не указан или недопустим
+
+                // Если цвет не указан или недопустим
+                if (isNaN(arg) || arg > COLORS.length - 1 || arg < 0) { 
                     replyCommandColor()
-                } else { // Если цвет указан и допустим
+                } else {
+                    // Если цвет указан и допустим
                     const color = COLORS[parseInt(arg)]
                     document.documentElement.style.setProperty("--console-text-color", color.color);
                     localStorage.setItem("consoleTextColor", color.name);
