@@ -10,6 +10,8 @@
 }
 
 .console-inner {
+    max-height: min(700px, 80vh);
+    overflow: auto;
     background-color: var(--console-bg); /* Тёмно-серый фон */
     padding: 8px;
 }
