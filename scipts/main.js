@@ -1,4 +1,4 @@
-import { CustomConsole } from "./CustomConsole/customConsole.js";
+import { CustomConsole } from "./CustomConsole/CustomConsole.js";
 
 // Получаем текущий цвет консоли из localStorage и присваиваем его к переменной
 let consoleTextColor = localStorage.getItem("consoleTextColor");
