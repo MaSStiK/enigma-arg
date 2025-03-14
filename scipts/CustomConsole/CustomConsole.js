@@ -83,6 +83,7 @@ export class CustomConsole {
 
         if (command.startsWith("key")) {
             arg ? replyCommandKeyAnswer(command, arg) : replyCommandKey(command);
+            return
         }
 
         // Выполняем команду
