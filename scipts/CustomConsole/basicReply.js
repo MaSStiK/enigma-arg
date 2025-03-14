@@ -1,4 +1,4 @@
-import { CustomConsole } from "./CustomConsole.js"
+import { CustomConsole } from "./customConsole.js"
 const API_URL = window.location.hostname === "127.0.0.1" 
   ? "http://localhost:3000/api" 
   : "https://enigma-arg-api.vercel.app/api";

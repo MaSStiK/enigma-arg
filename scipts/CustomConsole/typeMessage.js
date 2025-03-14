@@ -30,7 +30,11 @@ function typeMessage(message, container) {
                 if (i < message.text.length) {
                     p.append(message.text[i]);
                     i++;
-                    setTimeout(type, speed);
+                    if (!DO_INSTANT) {
+                        setTimeout(type, speed);
+                    } else {
+                        type()
+                    }
                 } else {
                     resolve();
                 }
@@ -51,7 +55,7 @@ async function wait(ms) {
 }
 
 // Основная функция для последовательного вывода сообщений
-async function displayMessages(messages, container) {
+export default async function displayMessages(messages, container) {
     for (const message of messages) {
         await typeMessage(message, container);  
         if (message.text !== "&nbsp;" && !DO_INSTANT && message.pause !== 0) {

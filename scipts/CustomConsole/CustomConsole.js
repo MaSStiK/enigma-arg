@@ -1,3 +1,4 @@
+import displayMessages from './typeMessage.js'
 import { DISABLED_COMMANDS, COMMANDS, COLORS } from './basicCommands.js'
 import {
     replyCommandNotAllowed,
@@ -70,7 +71,7 @@ export class CustomConsole {
         const splittedCommand = originalCommand.split(" ")
         const command = splittedCommand[0].toLowerCase()
         const arg = splittedCommand.slice(1).join(' ')
-        console.log(arg);
+        console.log(`command: ${command}, arg: ${arg}`);
         
 
         // Вставляем текущую команду в консоль
