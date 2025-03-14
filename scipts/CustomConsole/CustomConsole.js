@@ -72,7 +72,10 @@ export class CustomConsole {
         
 
         // Вставляем текущую команду в консоль
-        if (typeCommandLine) $("#console-container").append(`<p>C:\\Users\\Enigma\\arg>${originalCommand}</p>`)
+        if (typeCommandLine) {
+            $("#console-container").append(`<p>C:\\Users\\Enigma\\arg>${originalCommand}</p>`)
+            scrollToBottom()
+        }
 
         // Если команда отключена
         let isCommandDisabled = this.DISABLED_COMMANDS.find(c => command === c.toLowerCase())

@@ -46,6 +46,7 @@ function typeMessage(message, container) {
             let i = 0;
 
             function type() {
+                scrollToBottom()
                 if (i < message.text.length) {
                     p.append(message.text[i]);
                     i++;
@@ -72,11 +73,19 @@ async function wait(ms) {
 // Основная функция для последовательного вывода сообщений
 export async function displayMessages(messages, container) {
     for (const message of messages) {
-        await typeMessage(message, container);  
+        await typeMessage(message, container).then(() => {
+            // После вывода сообщения прокручиваем консоль вниз
+            scrollToBottom()
+        })
+
         if (message.text !== "&nbsp;" && !DO_INSTANT && message.pause !== 0) {
-            await wait(message.pause !== undefined ? message.pause : DEFAULT_PAUSE); // Пауза между сообщениями
+            // Пауза между сообщениями
+            await wait(
+                message.pause !== undefined
+                    ? message.pause
+                    : DEFAULT_PAUSE
+            );
         }
-        scrollToBottom()
     }
 }
 
