@@ -15,6 +15,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const cmd = urlParams.get("cmd");
 
 if (cmd) {
+    // Выполняем команду из поисковой строки
     CustomConsole.showInput(false)
     const bootingMessages = [
         {text: "C:\\Users\\Enigma\\arg>", speed: "instant"},

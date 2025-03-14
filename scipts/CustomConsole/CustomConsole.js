@@ -1,4 +1,4 @@
-import displayMessages from './typeMessage.js'
+import { displayMessages, scrollToBottom } from './typeMessage.js'
 import { DISABLED_COMMANDS, COMMANDS, COLORS } from './basicCommands.js'
 import {
     replyCommandNotAllowed,
@@ -16,12 +16,9 @@ export class CustomConsole {
     static COMMANDS = COMMANDS;
     static COLORS = COLORS;
 
-    
-
     // Отображение/скрытие поля ввода
     static showInput(state=true) {
-        if (state) $("#command-input-wrapper").show()
-        else $("#command-input-wrapper").hide()
+        state ? $("#command-input-wrapper").show() : $("#command-input-wrapper").hide()
     }
 
     // Инициализация инпута для ввода команд
@@ -85,12 +82,7 @@ export class CustomConsole {
         }
 
         if (command.startsWith("key")) {
-            if (!arg) {
-                replyCommandKey(command)
-            } else {
-                replyCommandKeyAnswer(command, arg)
-            }
-            return
+            arg ? replyCommandKeyAnswer(command, arg) : replyCommandKey(command);
         }
 
         // Выполняем команду

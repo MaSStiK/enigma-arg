@@ -2,6 +2,25 @@ const DEFAULT_SPEED = 20;
 const DEFAULT_PAUSE = 500;
 let DO_INSTANT = false;
 
+const container = document.getElementsByClassName("console-inner")[0];
+let autoScroll = true; // Флаг, разрешающий автоматическую прокрутку
+
+// Отслеживание скролла пользователем
+container.addEventListener("scroll", () => {
+    // Проверяем, прокрутил ли пользователь вверх
+    const atBottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 5; // небольшой запас в 5px
+    autoScroll = atBottom; // Если он внизу — включаем авто-прокрутку, иначе выключаем
+});
+
+// Функция прокрутки вниз с задержкой
+export function scrollToBottom() {
+    if (autoScroll) {
+        setTimeout(() => {
+            container.scrollTop = container.scrollHeight;
+        }, 0);
+    }
+}
+
 // Функция для печати текста
 function typeMessage(message, container) {
     return new Promise((resolve) => {
@@ -30,11 +49,7 @@ function typeMessage(message, container) {
                 if (i < message.text.length) {
                     p.append(message.text[i]);
                     i++;
-                    if (!DO_INSTANT) {
-                        setTimeout(type, speed);
-                    } else {
-                        type()
-                    }
+                    DO_INSTANT ? type() : setTimeout(type, speed);
                 } else {
                     resolve();
                 }
@@ -55,12 +70,13 @@ async function wait(ms) {
 }
 
 // Основная функция для последовательного вывода сообщений
-export default async function displayMessages(messages, container) {
+export async function displayMessages(messages, container) {
     for (const message of messages) {
         await typeMessage(message, container);  
         if (message.text !== "&nbsp;" && !DO_INSTANT && message.pause !== 0) {
             await wait(message.pause !== undefined ? message.pause : DEFAULT_PAUSE); // Пауза между сообщениями
         }
+        scrollToBottom()
     }
 }
 
@@ -68,5 +84,5 @@ $(".skip-animation").on("click tap", () => {
     DO_INSTANT = true
     setTimeout(() => {
         DO_INSTANT = false
-    }, 500)
+    }, 50)
 })
