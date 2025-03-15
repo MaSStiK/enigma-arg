@@ -67,11 +67,14 @@ export function replyCommandStartBat() {
         {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
     ], false)
 
-    fetch(`${API_URL}/start.bat`)
-    .then(res => res.json())
-    .then(reply => {
-        CustomConsole.replyCommand(reply)
-    })
+    $.ajax({
+        url: `${API_URL}/start.bat`,
+        method: "GET",
+        dataType: "json",
+        success: reply => {
+            CustomConsole.replyCommand(reply);
+        },
+    });
 }
 
 export function replyCommandKey(key) {
@@ -79,11 +82,17 @@ export function replyCommandKey(key) {
         {text: "Pinging 77.85.11.60 with 32 bytes of data:", speed: "instant"},
     ], false)
 
-    fetch(`${API_URL}/${key}`)
-    .then(res => res.json())
-    .then(reply => {
-        CustomConsole.replyCommand(reply)
-    })
+    $.ajax({
+        url: `${API_URL}/${key}`,
+        method: "GET",
+        dataType: "json",
+        success: reply => {
+            CustomConsole.replyCommand(reply);
+        },
+        error: reply => {
+            CustomConsole.replyCommand(JSON.parse(reply.responseText));
+        }
+    });
 }
 
 export function replyCommandKeyAnswer(key, arg) {
@@ -91,11 +100,15 @@ export function replyCommandKeyAnswer(key, arg) {
         {text: `curl -X POST 77.85.11.60 -d "file=${key}, answer=${arg}"`, speed: "instant"},
     ], false)
 
-    let url = `${API_URL}/${key}?answer=${encodeURIComponent(arg)}`
-
-    fetch(url)
-    .then(res => res.json())
-    .then(reply => {
-        CustomConsole.replyCommand(reply)
-    })
+    $.ajax({
+        url: `${API_URL}/${key}?answer=${encodeURIComponent(arg)}`,
+        method: "GET",
+        dataType: "json",
+        success: reply => {
+            CustomConsole.replyCommand(reply);
+        },
+        error: reply => {
+            CustomConsole.replyCommand(JSON.parse(reply.responseText));
+        }
+    });
 }
