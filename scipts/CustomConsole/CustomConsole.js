@@ -25,6 +25,13 @@ export class CustomConsole {
     static initInput() { 
         const $input = $("#command-input");
         const $blink = $("#blink");
+
+        // Активируем инпут при клике на консоль
+        $(".console-inner").on("click tap", function() {
+            if (window.getSelection().toString().length === 0) {
+                $input.focus();
+            }
+        })
     
         $input.on("focus input", function() {
             $blink.hide(); // Скрываем при фокусе и вводе
@@ -35,19 +42,18 @@ export class CustomConsole {
                 $blink.show(); // Показываем, если поле осталось пустым
             }
         });
-    
-        $input.on("change", function() {
-            CustomConsole.showInput(false)
-            CustomConsole.executeCommand($(this).val())
-            $(this).val("") // Очищаем поле ввода после выполнения команды
-        })
 
-        // Активируем инпут при клике на консоль
-        $(".console-inner").on("click tap", function() {
-            if (window.getSelection().toString().length === 0) {
-                $input.focus();
+        function executeCommand() {
+            CustomConsole.showInput(false)
+            CustomConsole.executeCommand($input.val())
+            $input.val("") // Очищаем поле ввода после выполнения команды
+        }
+    
+        $(document).on('keydown', function(e) {
+            if (e.keyCode == 13 || e.which == 13) {
+                executeCommand();
             }
-        })
+        });
     }
 
     // Отображение сообщений в консоли

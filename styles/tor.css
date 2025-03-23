@@ -1,0 +1,121 @@
+:root {
+    --tor-h1-size: 60px;
+    --tor-text-size: 18px;
+    --tor-padding: 20px;
+}
+
+.tor-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.tor-wrapper p,
+.tor-wrapper h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tor-inner {
+    padding: var(--tor-padding);
+}
+
+.tor-inner h1 {
+    font-size: var(--tor-h1-size);
+    font-weight: 600;
+    color: #CCCCCC;
+}
+
+.tor-inner p {
+    font-size: var(--tor-text-size);
+    color: #000000;
+    margin-top: 16px;
+}
+
+.tor-inner p a {
+    font-family: inherit;
+    font-size: inherit;
+    color: #08638d;
+    white-space: nowrap;
+}
+
+
+/* Информация почему недоступен сайт */
+.tor__additional-info {
+    padding: 20px;
+    background-image: url("https://enigma-arg-api.vercel.app/tor/error-bg-left.png");
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #293A4A;
+}
+
+.tor__additional-info ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.tor__additional-info li {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+}
+
+.tor__info-image img {
+    height: 80px;
+}
+
+.tor__heading-text {
+    font-size: var(--tor-text-size);
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/* cPanel внизу */
+.tor__cpanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: var(--tor-padding);
+
+    margin: 0 auto 0 auto;
+}
+
+.tor__cpanel img {
+    height: 20px;
+}
+
+.tor__cpanel p {
+    font-size: 10px;
+    color: #3F4143;
+}
+
+
+/* Мобильные устройства */
+@media screen and (width < 550px) {
+    :root {
+        --tor-h1-size: 40px;
+        --tor-text-size: 14px;
+        --tor-padding: 8px;
+    }
+    
+    .tor-inner p {
+        margin-top: 8px;
+    }
+
+    .tor__additional-info ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tor__additional-info li {
+        width: 100%;
+    }
+
+    .tor__info-image img {
+        height: 40px;
+    }
+}

@@ -89,16 +89,21 @@ export function replyCommandKey(key) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
-        error: reply => {
-            CustomConsole.replyCommand(JSON.parse(reply.responseText));
-        }
     });
 }
 
 export function replyCommandKeyAnswer(key, arg) {
-    CustomConsole.replyCommand([
-        {text: `curl -X POST 77.85.11.60 -d "file=${key}, answer=${arg}"`, speed: "instant"},
-    ], false)
+    if (key !== "key-4-crypted.bat") {
+        CustomConsole.replyCommand([
+            {text: `curl -X POST 77.85.11.60 -d "file=${key}, answer=${arg}"`, speed: "instant"},
+        ], false)
+    } else {
+        if (arg) {
+            CustomConsole.replyCommand([
+                {text: `curl --socks5 127.0.0.1:9050 -X GET http://${arg}`, speed: "instant"},
+            ], false)
+        }
+    }
 
     $.ajax({
         url: `${API_URL}/${key}?answer=${encodeURIComponent(arg)}`,
@@ -107,8 +112,5 @@ export function replyCommandKeyAnswer(key, arg) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
-        error: reply => {
-            CustomConsole.replyCommand(JSON.parse(reply.responseText));
-        }
     });
 }

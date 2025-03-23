@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
 
-@import "./button.css";
-@import "./input.css";
-
-@import "./console.css";
-@import "./console-top.css";
-
 :root {
     --console-bg: #111111;
     --console-text-color: #00ff00;
@@ -24,7 +18,7 @@ body {
     padding: 20px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (width < 550px) {
     :root {
         --console-text-size: 12px;
     }
