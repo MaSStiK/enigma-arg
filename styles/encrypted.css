@@ -1,0 +1,132 @@
+:root {
+    --encrypted-h1-size: 24px;
+    --encrypted-h3-size: 20px;
+    --encrypted-text-size: 16px;
+    --encrypted-padding: 20px;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 3px 3px red, -3px -3px blue; }
+    25% { text-shadow: -3px -3px red, 3px 3px blue; }
+    50% { text-shadow: 3px -3px red, -3px 3px blue; }
+    75% { text-shadow: -3px 3px red, 3px -3px blue; }
+    100% { text-shadow: 3px 3px red, -3px -3px blue; }
+}
+
+@keyframes danger {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes warning {
+    0% { color: #f00; }
+    50% { color: #ff4444; text-shadow: 0 0 10px red; }
+    100% { color: #f00; }
+}
+
+@keyframes borderFlicker {
+    0% { box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); }
+    50% { box-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+    100% { box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); }
+}
+
+@keyframes static {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; transform: translateX(2px); }
+}
+
+
+/* Классы с анимацией для текста */
+.warning {
+    animation: warning 0.8s infinite alternate;
+}
+
+.glitch {
+    animation: glitch 0.4s infinite alternate;
+}
+
+.danger {
+    animation: danger 0.7s infinite;
+}
+
+
+/* Контейнер с информацией */
+.encrypted {
+    width: 100%;
+    background: rgba(37, 37, 37, 0.9);
+    padding: var(--encrypted-padding);
+}
+
+.encrypted h1,
+.encrypted h2,
+.encrypted h3,
+.encrypted p,
+.encrypted li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.encrypted h1,
+.encrypted h2 {
+    font-size: var(--encrypted-h1-size);
+    color: #ff0000;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.encrypted h3 {
+    font-size: var(--encrypted-h3-size);
+    color: #ff0000;
+    margin-top: var(--encrypted-padding);
+}
+
+.encrypted span {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.encrypted h2.glitch {
+    margin: var(--encrypted-padding) 0;
+}
+
+
+.image-container {
+    width: min(500px, 100%);
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 20px #ff0000;
+    position: relative;
+    overflow: hidden;
+    animation: borderFlicker 3s infinite alternate ease-in-out;
+    margin: 0 auto;
+}
+
+.image-container img {
+    width: min(500px, 100%);
+    animation: static 0.3s infinite alternate;
+}
+
+.coordinates {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    background-color: #00000099;
+    border-radius: 5px;
+    box-shadow: 0 0 5px red;
+    padding: 8px;
+
+    font-size: var(--encrypted-text-size);
+    color: #ff4444;
+    font-weight: bold;
+}
+
+/* Мобильные устройства */
+@media screen and (width < 550px) {
+    :root {
+        --encrypted-h1-size: 16px;
+        --encrypted-h3-size: 14px;
+        --encrypted-text-size: 12px;
+        --encrypted-padding: 8px;
+    }
+}

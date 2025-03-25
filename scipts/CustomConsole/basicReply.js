@@ -100,7 +100,7 @@ export function replyCommandKeyAnswer(key, arg) {
     } else {
         if (arg) {
             CustomConsole.replyCommand([
-                {text: `curl --socks5 127.0.0.1:9050 -X GET http://${arg}`, speed: "instant"},
+                {text: `curl --socks5 127.0.0.1:9050 -X GET ${arg}`, speed: "instant"},
             ], false)
         }
     }

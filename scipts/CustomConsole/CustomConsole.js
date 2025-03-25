@@ -43,6 +43,8 @@ export class CustomConsole {
             }
         });
 
+
+        // Выполнить команду из строки ввода команд
         function executeCommand() {
             CustomConsole.showInput(false)
             CustomConsole.executeCommand($input.val())
