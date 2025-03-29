@@ -1,11 +1,19 @@
 # enigma-arg  
-Сайт с арг для сервера Новая Жизнь
+Сайт с арг для Minecraft сервера "Новая Жизнь"
 
 
-### Начало
-Доступно по ссылке start.bat
+## Начало
+Доступно в файле start.bat
+* Полная ссылка https://enigma-arg.vercel.app?cmd=start.bat
+![start.bat](https://github.com/user-attachments/assets/b3dd794c-0097-4e06-947e-43b8dbf17338)
+
+
+## Задание 1
+Доступно по ссылке key-1.bat
 <details>
-<summary>Ссылка на старт</summary>
-* Файл start.bat
-* https://enigma-arg.vercel.app?cmd=start.bat
+<summary>Ответ</summary>
+  
+* Файл key-1.bat
+* Ссылка на файл https://enigma-arg.vercel.app?cmd=key-1.bat
+
 </details>
