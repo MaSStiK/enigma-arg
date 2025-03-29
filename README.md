@@ -221,4 +221,11 @@
   <img src="https://github.com/user-attachments/assets/1ef511b2-f5c2-4a5e-8810-14f55d5775f6" alt="reward">
 </details>
 
+<details>
+  <summary>Книжка с поздравлениями</summary>
+  <img src="https://github.com/user-attachments/assets/f1d2a744-d3f4-4511-8d62-01deffaa8c17" alt="reward">
+  <img src="https://github.com/user-attachments/assets/96663cd7-2f8a-46a0-aef0-304261ec8f16" alt="reward">
+  <img src="https://github.com/user-attachments/assets/ada545e0-2380-4a27-9a89-47aa9326156a" alt="reward">
+  <img src="https://github.com/user-attachments/assets/43e4fc6d-7179-4707-ab7b-547fc97d54eb" alt="reward">
+</details>
 </details>
