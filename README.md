@@ -5,7 +5,10 @@
 ## Начало
 Доступно в файле start.bat
 * Полная ссылка https://enigma-arg.vercel.app?cmd=start.bat
+<details>
+<summary>Скриншот с текстом</summary>
 ![start.bat](https://github.com/user-attachments/assets/b3dd794c-0097-4e06-947e-43b8dbf17338)
+</details>
 
 
 ## Задание 1
