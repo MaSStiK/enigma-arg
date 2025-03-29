@@ -7,7 +7,7 @@
 * Полная ссылка https://enigma-arg.vercel.app?cmd=start.bat
 <details>
 <summary>Скриншот с текстом</summary>
-![start.bat](https://github.com/user-attachments/assets/b3dd794c-0097-4e06-947e-43b8dbf17338)
+![screenshot](https://github.com/user-attachments/assets/d425cc9f-4626-4041-b2d2-81976209b618)
 </details>
 
 
