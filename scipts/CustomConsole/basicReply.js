@@ -97,8 +97,12 @@ export function replyCommandKey(key) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
-        error: () => {
-            replyCommandError()
+        error: reply => {
+            if (reply.responseText) {
+                CustomConsole.replyCommand(JSON.parse(reply.responseText));
+            } else {
+                replyCommandError()
+            }
         }
     });
 }
@@ -123,8 +127,12 @@ export function replyCommandKeyAnswer(key, arg) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
-        error: () => {
-            replyCommandError()
+        error: reply => {
+            if (reply.responseText) {
+                CustomConsole.replyCommand(JSON.parse(reply.responseText));
+            } else {
+                replyCommandError()
+            }
         }
     });
 }
