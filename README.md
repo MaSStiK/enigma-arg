@@ -5,9 +5,7 @@
 ### Начало
 Доступно по ссылке start.bat
 <details>
-  <summary>Ссылка на старт</summary>
-  Файл start.bat  
-  ```text
-  https://enigma-arg.vercel.app?cmd=start.bat
-  ```
+<summary>Ссылка на старт</summary>
+* Файл start.bat
+* https://enigma-arg.vercel.app?cmd=start.bat
 </details>
