@@ -20,6 +20,14 @@ export function replyCommandNotFound(command) {
     ])
 }
 
+export function replyCommandError() {
+    CustomConsole.replyCommand([
+        {text: `Произошла ошибка при выполнении команды.`, speed: "instant", pause: 0},
+        {text: `Пожалуйста, повторите попытку позже.`, speed: "instant", pause: 0},
+        {text: "&nbsp;"}
+    ])
+}
+
 export function replyCommandHelp(command) {
     let reply = [
         {text: `Информация о событии:`, speed: "instant", pause: 0},
@@ -89,6 +97,9 @@ export function replyCommandKey(key) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
+        error: () => {
+            replyCommandError()
+        }
     });
 }
 
@@ -100,7 +111,7 @@ export function replyCommandKeyAnswer(key, arg) {
     } else {
         if (arg) {
             CustomConsole.replyCommand([
-                {text: `curl --socks5 127.0.0.1:9050 -X GET ${arg}`, speed: "instant"},
+                {text: `torify curl -X GET http://${arg}`, speed: "instant"},
             ], false)
         }
     }
@@ -112,5 +123,8 @@ export function replyCommandKeyAnswer(key, arg) {
         success: reply => {
             CustomConsole.replyCommand(reply);
         },
+        error: () => {
+            replyCommandError()
+        }
     });
 }

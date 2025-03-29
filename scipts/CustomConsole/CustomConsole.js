@@ -53,7 +53,9 @@ export class CustomConsole {
     
         $(document).on('keydown', function(e) {
             if (e.keyCode == 13 || e.which == 13) {
-                executeCommand();
+                if ($input.val().trim()) {
+                    executeCommand();
+                }
             }
         });
     }
@@ -77,6 +79,10 @@ export class CustomConsole {
         const command = splittedCommand[0].toLowerCase()
         const arg = splittedCommand.slice(1).join(' ')
         console.log(`command: ${command}, arg: ${arg}`);
+
+        if (command === "") {
+            return
+        }
         
 
         // Вставляем текущую команду в консоль
