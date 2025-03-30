@@ -226,9 +226,9 @@
 
 <details>
   <summary>📜 Книжка с поздравлениями</summary>
-  <img src="https://github.com/user-attachments/assets/f1d2a744-d3f4-4511-8d62-01deffaa8c17" alt="reward">
-  <img src="https://github.com/user-attachments/assets/96663cd7-2f8a-46a0-aef0-304261ec8f16" alt="reward">
-  <img src="https://github.com/user-attachments/assets/ada545e0-2380-4a27-9a89-47aa9326156a" alt="reward">
-  <img src="https://github.com/user-attachments/assets/43e4fc6d-7179-4707-ab7b-547fc97d54eb" alt="reward">
+  <img src="https://github.com/user-attachments/assets/cb286990-3a2d-484e-a132-50902900af9c" alt="reward">
+  <img src="https://github.com/user-attachments/assets/9fd73f86-649d-4c6a-ae1f-1c42788fbc83" alt="reward">
+  <img src="https://github.com/user-attachments/assets/df5985a0-9a93-40fe-b9a1-50838b9cfb5e" alt="reward">
+  <img src="https://github.com/user-attachments/assets/f428d7d2-80f9-4af5-bdce-5acbf61ad82f" alt="reward">
 </details>
 </details>
