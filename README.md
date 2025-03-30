@@ -102,7 +102,7 @@
 
 <details>
   <summary>🖥️ Содержимое файла</summary>
-  <img src="https://github.com/user-attachments/assets/97cf21d9-1af0-46dc-b154-4ee971a81a5d" alt="key-3-secured.bat">
+  <img src="https://github.com/user-attachments/assets/ac5c6263-3377-4e0b-8320-065b15d67767" alt="key-3-secured.bat">
 </details>
 
 <details>
