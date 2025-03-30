@@ -6,24 +6,12 @@
 }
 
 @keyframes glitch {
-    0% {
-      text-shadow: 3px 0 red, -3px 0 blue;
-    }
-    20% {
-      text-shadow: -3px 0 red, 3px 0 blue;
-    }
-    40% {
-      text-shadow: 3px 3px red, -3px -3px blue;
-    }
-    60% {
-      text-shadow: -3px -3px red, 3px 3px blue;
-    }
-    80% {
-      text-shadow: 3px -3px red, -3px 3px blue;
-    }
-    100% {
-      text-shadow: -3px 3px red, 3px -3px blue;
-    }
+    0% { text-shadow: 3px 0 red, -3px 0 blue; }
+    20% { text-shadow: -3px 0 red, 3px 0 blue; }
+    40% { text-shadow: 3px 3px red, -3px -3px blue; }
+    60% { text-shadow: -3px -3px red, 3px 3px blue; }
+    80% { text-shadow: 3px -3px red, -3px 3px blue; }
+    100% { text-shadow: -3px 3px red, 3px -3px blue; }
 }
 
 @keyframes danger {
