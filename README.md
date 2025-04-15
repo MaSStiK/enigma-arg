@@ -23,6 +23,11 @@
 Игрокам отправляется ссылка, по которой они переходят и видят вступительное задание  
 `https://enigma-arg.vercel.app/?cmd=start.bat`
 
+<details>
+  <summary>🖥️ Правила проведения</summary>
+  <img src="https://github.com/user-attachments/assets/d56031f8-0221-4d76-a1a3-fea3f532705e" alt="start.bat">
+</details>
+
 ### 📜 Задание:
 * Файл: `start.bat`
 * Ссылка: https://enigma-arg.vercel.app/?cmd=start.bat
