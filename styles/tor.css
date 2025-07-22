@@ -41,7 +41,7 @@
 /* Информация почему недоступен сайт */
 .tor__additional-info {
     padding: 20px;
-    background-image: url("https://enigma-arg-api.onrender.com/tor/error-bg-left.png");
+    background-image: url("https://enigma-arg-api.vercel.app/tor/error-bg-left.png");
     background-repeat: no-repeat;
     background-size: 200px;
     background-color: #293A4A;
